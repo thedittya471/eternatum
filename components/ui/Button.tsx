@@ -1,14 +1,17 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
+import { useAudio } from '@/contexts/AudioContext';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'pixel';
     size?: 'sm' | 'md' | 'lg';
     glow?: boolean;
+    soundEffect?: 'click' | 'pop' | 'confirm';
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant = 'primary', size = 'md', glow = false, children, ...props }, ref) => {
+    ({ className, variant = 'primary', size = 'md', glow = false, soundEffect = 'click', children, onClick, ...props }, ref) => {
+        const audio = useAudio();
 
         const baseStyles = "relative inline-flex items-center justify-center rounded transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 disabled:opacity-50 disabled:pointer-events-none font-sans font-medium active:translate-y-[1px]";
 
