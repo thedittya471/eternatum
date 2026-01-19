@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { useSession, signOut } from 'next-auth/react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 
