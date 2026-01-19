@@ -19,6 +19,7 @@ const UserScoreboard = dynamic(() => import('@/components/landing/UserScoreboard
 export default function LandingPage() {
     const [showWarpIntro, setShowWarpIntro] = useState(true);
     const [pacManEnabled, setPacManEnabled] = useState(true);
+    const { data: session } = useSession();
 
     const handleWarpComplete = () => {
         setShowWarpIntro(false);
