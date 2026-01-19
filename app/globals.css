@@ -13,10 +13,17 @@
   --color-surface: #121212;
   --color-surface-highlight: #1a1a1a;
 
+  /* Primary Neon Colors (Existing) */
   --color-neon-cyan: #00f0ff;
   --color-electric-purple: #bf00ff;
   --color-pixel-green: #00ff41;
   --color-soft-magenta: #ff00aa;
+
+  /* New Neon Colors */
+  --color-neon-red: #ff0055;
+  --color-neon-blue: #0099ff;
+  --color-neon-yellow: #ffff00;
+  --color-neon-green-bright: #39ff14;
 
   /* Animations */
   --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
