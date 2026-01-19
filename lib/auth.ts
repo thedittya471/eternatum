@@ -15,23 +15,22 @@ users.set('test@example.com', {
   name: 'Test User',
 });
 
-export const authConfig = {
+export const authConfig: NextAuthConfig = {
   providers: [
     CredentialsProvider({
-      name: 'Credentials',
       credentials: {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error('Email and password are required');
+          throw new Error('Invalid credentials');
         }
 
         const user = users.get(credentials.email as string);
 
         if (!user) {
-          throw new Error('User not found. Try signing up first.');
+          throw new Error('User not found');
         }
 
         if (user.password !== credentials.password) {
@@ -48,7 +47,6 @@ export const authConfig = {
   ],
   pages: {
     signIn: '/login',
-    signUp: '/signup',
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -58,14 +56,14 @@ export const authConfig = {
       return token;
     },
     async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.id as string;
+      if (session?.user) {
+        (session.user as any).id = token.id as string;
       }
       return session;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET || 'dev-secret-key-change-in-production',
-} satisfies NextAuthConfig;
+  secret: process.env.NEXTAUTH_SECRET || 'dev-secret-key-for-development',
+};
 
 /**
  * Helper function to sign up a new user
