@@ -7,6 +7,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     size?: 'sm' | 'md' | 'lg';
     glow?: boolean;
     soundEffect?: 'click' | 'pop' | 'confirm';
+    asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
