@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 
 interface CatMascotProps {
   animate?: boolean;
@@ -10,9 +9,9 @@ interface CatMascotProps {
 }
 
 const sizeMap = {
-  sm: 96,
-  md: 128,
-  lg: 192,
+  sm: '96px',
+  md: '128px',
+  lg: '192px',
 };
 
 export default function CatMascot({
@@ -26,19 +25,16 @@ export default function CatMascot({
     <div
       className={`${className} relative inline-flex items-center justify-center`}
       style={{
-        width: `${dimension}px`,
-        height: `${dimension}px`,
+        width: dimension,
+        height: dimension,
       }}
     >
-      <Image
+      <img
         src="https://cdn.builder.io/api/v1/image/assets%2Fb46c142b13d84d9484edef66fb44edd7%2Feeb1fc9ec2cb45ea93c5004978e69e21?format=webp&width=800"
         alt="Cool thug cat mascot"
-        width={dimension}
-        height={dimension}
         className={`w-full h-full object-contain drop-shadow-lg ${
           animate ? 'animate-pulse-neon' : ''
         }`}
-        priority
       />
 
       {/* Neon glow effect around cat */}
