@@ -67,22 +67,22 @@ export default function GameCard({
                     className="border-b border-white/5"
                 />
 
-                {/* Play button overlay */}
+                {/* Play button overlay with pop animation */}
                 <button
-                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-black/0 group-hover:bg-black/40 transition-colors duration-300"
+                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-black/0 group-hover:bg-black/50 transition-colors duration-300"
                     aria-label={`Play ${title}`}
                 >
-                    <div className="rounded-full bg-neon-cyan/0 group-hover:bg-neon-cyan/80 p-3 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.8)]">
+                    <div className="rounded-full bg-neon-cyan/0 group-hover:bg-neon-cyan p-3 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(0,240,255,1)] group-hover:animate-pop-bounce">
                         <Play
-                            size={24}
+                            size={28}
                             className="text-black opacity-0 group-hover:opacity-100 transition-opacity fill-black"
                         />
                     </div>
                 </button>
 
-                {/* Status badge */}
+                {/* Status badge with dynamic colors */}
                 {status && (
-                    <div className="absolute top-3 right-3">
+                    <div className="absolute top-3 right-3 animate-pulse-neon">
                         <Badge
                             variant={
                                 status === 'featured'
@@ -90,6 +90,13 @@ export default function GameCard({
                                     : status === 'new'
                                         ? 'success'
                                         : 'warning'
+                            }
+                            className={
+                                status === 'featured'
+                                    ? 'border-neon-red border text-neon-red'
+                                    : status === 'new'
+                                        ? 'border-neon-blue border text-neon-blue'
+                                        : 'border-neon-green-bright border text-neon-green-bright'
                             }
                         >
                             {status.toUpperCase()}
