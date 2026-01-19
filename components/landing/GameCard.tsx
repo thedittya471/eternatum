@@ -2,6 +2,8 @@ import React from 'react';
 import { Heart, Play } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import GameThumbnail from '@/components/ui/GameThumbnail';
+import { useAudio } from '@/contexts/AudioContext';
 
 export interface GameCardProps {
     id: string;
