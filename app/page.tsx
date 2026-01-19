@@ -68,12 +68,35 @@ export default function LandingPage() {
                     ))}
                 </nav>
                 <div className="flex gap-4">
-                    <Button variant="ghost" size="sm">
-                        Log In
-                    </Button>
-                    <Button size="sm" glow>
-                        Sign Up
-                    </Button>
+                    {session ? (
+                        <>
+                            <Button variant="ghost" size="sm" asChild>
+                                <Link href="/dashboard">
+                                    Dashboard
+                                </Link>
+                            </Button>
+                            <Button
+                                size="sm"
+                                glow
+                                onClick={() => signOut({ redirect: true })}
+                            >
+                                Log Out
+                            </Button>
+                        </>
+                    ) : (
+                        <>
+                            <Button variant="ghost" size="sm" asChild>
+                                <Link href="/login">
+                                    Log In
+                                </Link>
+                            </Button>
+                            <Button size="sm" glow asChild>
+                                <Link href="/signup">
+                                    Sign Up
+                                </Link>
+                            </Button>
+                        </>
+                    )}
                 </div>
             </header>
 
