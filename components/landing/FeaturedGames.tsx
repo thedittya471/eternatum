@@ -160,7 +160,8 @@ export default function FeaturedGames({
                                     size="sm"
                                     onClick={() => setSortBy(sort)}
                                     soundEffect="pop"
-                                    className={`capitalize font-pixel text-xs tracking-wider ${
+                                    colorCycle={sortBy === sort}
+                                    className={`capitalize font-pixel text-xs tracking-wider border ${
                                         sortBy === sort ? 'text-black' : `${altColor.text} hover:${altColor.text}`
                                     }`}
                                 >
