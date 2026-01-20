@@ -122,10 +122,10 @@ export default function LandingPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                    <Button size="lg" glow className="min-w-[200px] text-lg">
+                    <Button size="lg" colorCycle className="min-w-[200px] text-lg border">
                         Start Building
                     </Button>
-                    <Button variant="outline" size="lg" className="min-w-[200px] text-lg">
+                    <Button variant="outline" size="lg" colorCycle className="min-w-[200px] text-lg">
                         Play Games
                     </Button>
                 </div>
