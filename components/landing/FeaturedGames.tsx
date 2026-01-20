@@ -175,10 +175,11 @@ export default function FeaturedGames({
 
                 {/* Games grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {sortedGames.map((game) => (
+                    {sortedGames.map((game, index) => (
                         <GameCard
                             key={game.id}
                             {...game}
+                            index={index}
                             onClick={() => onGameClick?.(game.id)}
                         />
                     ))}
