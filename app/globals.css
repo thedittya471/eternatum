@@ -144,7 +144,7 @@ body {
   opacity: 0.3;
 }
 
-/* Warp lines effect */
+/* Warp lines effect - Yellow */
 .warp-lines {
   position: absolute;
   width: 100%;
@@ -153,8 +153,8 @@ body {
     to bottom,
     transparent,
     transparent 2px,
-    rgba(255, 255, 0, 0.1) 2px,
-    rgba(255, 255, 0, 0.1) 4px
+    rgba(255, 255, 0, 0.2) 2px,
+    rgba(255, 255, 0, 0.2) 4px
   );
   animation: warp-lines 2s ease-out infinite;
 }
