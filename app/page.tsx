@@ -30,7 +30,7 @@ export default function LandingPage() {
     };
 
     return (
-        <main className="relative min-h-screen bg-background text-gray-100 overflow-x-hidden selection:bg-neon-cyan selection:text-black">
+        <main className="relative min-h-screen bg-background text-gray-100 overflow-x-hidden selection:bg-neon-yellow selection:text-black">
             {/* Warp intro animation */}
             {showWarpIntro && (
                 <WarpIntro
