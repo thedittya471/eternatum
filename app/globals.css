@@ -182,11 +182,11 @@ body {
 @keyframes neon-flicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
     opacity: 1;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.7), 0 0 20px rgba(255, 255, 0, 0.5);
   }
   20%, 24%, 55% {
     opacity: 0.8;
-    text-shadow: 0 0 5px rgba(0, 240, 255, 0.3);
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.3);
   }
 }
 
