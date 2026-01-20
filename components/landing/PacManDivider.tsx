@@ -58,17 +58,19 @@ export default function PacManDivider({ enabled = true, onToggle }: PacManDivide
                     className="w-full h-auto"
                     preserveAspectRatio="none"
                 >
-                    {/* Dots */}
+                    {/* Dots - Alternating colors */}
                     {Array.from({ length: dotsCount }).map((_, i) => {
                         const xPos = (i * dotSpacing) + 80;
                         const isEaten = i < dotsEaten;
+                        const dotColors = ['#ffff00', '#ff0055', '#39ff14'];
+                        const dotColor = dotColors[i % dotColors.length];
                         return (
                             <circle
                                 key={`dot-${i}`}
                                 cx={xPos}
                                 cy={dividerHeight / 2}
                                 r={dotRadius}
-                                fill={isEaten ? 'transparent' : '#00f0ff'}
+                                fill={isEaten ? 'transparent' : dotColor}
                                 opacity={isEaten ? 0 : 0.6}
                                 className="transition-opacity duration-100"
                             />
