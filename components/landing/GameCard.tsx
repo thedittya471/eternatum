@@ -27,8 +27,10 @@ export default function GameCard({
     description,
     status,
     onClick,
+    index = 0,
 }: GameCardProps) {
     const audio = useAudio();
+    const alternatingColor = getAlternatingColor(index);
 
     const handleClick = () => {
         audio.play('confirm');
@@ -42,14 +44,7 @@ export default function GameCard({
         }
     };
 
-    // Color mapping for status
-    const statusColorMap: Record<string, string> = {
-        featured: 'border-neon-red/50 hover:border-neon-red',
-        new: 'border-neon-blue/50 hover:border-neon-blue',
-        beta: 'border-neon-green-bright/50 hover:border-neon-green-bright',
-    };
-
-    const borderColor = status && statusColorMap[status] ? statusColorMap[status] : 'border-cyan-500/30';
+    const borderColor = alternatingColor.border;
 
     return (
         <Card
