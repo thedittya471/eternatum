@@ -112,7 +112,7 @@ export default function LandingPage() {
 
                 <h1 className="font-pixel text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
                     Build. Play.{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-electric-purple text-glow-cyan">
+                    <span className="animate-color-cycle">
                         Level Up.
                     </span>
                 </h1>
