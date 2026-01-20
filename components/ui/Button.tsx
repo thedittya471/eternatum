@@ -6,6 +6,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'pixel';
     size?: 'sm' | 'md' | 'lg';
     glow?: boolean;
+    colorCycle?: boolean;
     soundEffect?: 'click' | 'pop' | 'confirm';
     asChild?: boolean;
 }
