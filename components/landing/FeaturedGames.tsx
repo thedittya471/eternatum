@@ -150,24 +150,27 @@ export default function FeaturedGames({
                     {/* Sort Options */}
                     <div className="flex flex-wrap gap-2">
                         <span className="text-sm text-gray-500 font-pixel self-center mr-2">SORT:</span>
-                        {(['featured', 'likes', 'newest'] as const).map((sort) => (
-                            <Button
-                                key={sort}
-                                variant={sortBy === sort ? 'primary' : 'outline'}
-                                size="sm"
-                                onClick={() => setSortBy(sort)}
-                                soundEffect="pop"
-                                className={`capitalize font-pixel text-xs tracking-wider ${
-                                    sortBy === sort ? 'text-black' : 'text-neon-cyan hover:text-neon-cyan'
-                                }`}
-                            >
-                                {sort === 'featured'
-                                    ? '★ FEATURED'
-                                    : sort === 'likes'
-                                        ? '♥ TRENDING'
-                                        : '► NEW'}
-                            </Button>
-                        ))}
+                        {(['featured', 'likes', 'newest'] as const).map((sort, idx) => {
+                            const altColor = getAlternatingColor(idx);
+                            return (
+                                <Button
+                                    key={sort}
+                                    variant={sortBy === sort ? 'primary' : 'outline'}
+                                    size="sm"
+                                    onClick={() => setSortBy(sort)}
+                                    soundEffect="pop"
+                                    className={`capitalize font-pixel text-xs tracking-wider ${
+                                        sortBy === sort ? 'text-black' : `${altColor.text} hover:${altColor.text}`
+                                    }`}
+                                >
+                                    {sort === 'featured'
+                                        ? '★ FEATURED'
+                                        : sort === 'likes'
+                                            ? '♥ TRENDING'
+                                            : '► NEW'}
+                                </Button>
+                            );
+                        })}
                     </div>
                 </div>
 
