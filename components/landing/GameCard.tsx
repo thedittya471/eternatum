@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import GameThumbnail from '@/components/ui/GameThumbnail';
 import { useAudio } from '@/contexts/AudioContext';
+import { getAlternatingColor } from '@/lib/utils';
 
 export interface GameCardProps {
     id: string;
@@ -14,6 +15,7 @@ export interface GameCardProps {
     description?: string;
     status?: 'beta' | 'new' | 'featured';
     onClick?: () => void;
+    index?: number;
 }
 
 export default function GameCard({
