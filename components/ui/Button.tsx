@@ -38,7 +38,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             onClick?.(e);
         };
 
-        const computedClassName = cn(baseStyles, colorCycle ? "" : variants[variant], sizes[size], glowEffect, className);
+        // For color-cycle, use a base style that will be overridden by animation
+        const baseVariantStyle = colorCycle
+            ? "bg-transparent text-white border border-neon-red"
+            : variants[variant];
+
+        const computedClassName = cn(baseStyles, baseVariantStyle, sizes[size], glowEffect, className);
 
         // If asChild is true, apply styles to child element
         if (asChild) {
