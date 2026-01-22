@@ -106,7 +106,7 @@ export default function LandingPage() {
 
             {/* Hero Command Panel Section */}
             <section className="relative z-10 flex flex-col items-center justify-center pt-20 pb-32 px-6 text-center max-w-5xl mx-auto">
-                <Badge variant="success" className="mb-6 animate-float">
+                <Badge variant="success" colorCycle className="mb-6 animate-float">
                     SYSTEM ONLINE_ v1.0
                 </Badge>
 
