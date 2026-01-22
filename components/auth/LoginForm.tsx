@@ -97,7 +97,7 @@ export default function LoginForm() {
         type="submit"
         disabled={isLoading}
         className="w-full text-lg font-pixel tracking-widest"
-        glow
+        colorCycle
         soundEffect="confirm"
       >
         {isLoading ? 'LOGGING IN...' : 'LOG IN'}

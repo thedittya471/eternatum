@@ -154,7 +154,7 @@ export default function SignupForm() {
         type="submit"
         disabled={isLoading}
         className="w-full text-lg font-pixel tracking-widest"
-        glow
+        colorCycle
         soundEffect="pop"
       >
         {isLoading ? 'CREATING ACCOUNT...' : 'CREATE ACCOUNT'}
