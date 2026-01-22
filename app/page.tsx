@@ -81,7 +81,7 @@ export default function LandingPage() {
                             </Button>
                             <Button
                                 size="sm"
-                                glow
+                                colorCycle
                                 onClick={() => signOut({ redirect: true })}
                             >
                                 Log Out
@@ -94,7 +94,7 @@ export default function LandingPage() {
                                     Log In
                                 </Link>
                             </Button>
-                            <Button size="sm" glow asChild>
+                            <Button size="sm" colorCycle asChild>
                                 <Link href="/signup">
                                     Sign Up
                                 </Link>
