@@ -45,7 +45,7 @@ export default function WarpIntro({ onSkip, onComplete, autoSkipDelay = 5000 }: 
     if (!isVisible) return null;
 
     return (
-        <div className="fixed inset-0 z-50 overflow-hidden">
+        <div className="relative w-full h-screen z-50 overflow-hidden">
             {/* Animated starfield background */}
             <div className="absolute inset-0 bg-black">
                 <div className="starfield-background" />

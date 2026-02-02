@@ -30,33 +30,35 @@ export default function LandingPage() {
     };
 
     return (
-        <main className="relative min-h-screen bg-background text-gray-100 overflow-x-hidden selection:bg-neon-yellow selection:text-black">
-            {/* Warp intro animation */}
+        <main className="relative bg-background text-gray-100 overflow-x-hidden selection:bg-neon-yellow selection:text-black">
+            {/* Warp intro animation - full screen */}
             {showWarpIntro && (
-                <WarpIntro
-                    onComplete={handleWarpComplete}
-                    onSkip={handleWarpSkip}
-                    autoSkipDelay={5000}
-                />
+                <div className="relative w-full">
+                    <WarpIntro
+                        onComplete={handleWarpComplete}
+                        onSkip={handleWarpSkip}
+                        autoSkipDelay={5000}
+                    />
+                </div>
             )}
 
-            {/* Background 3D Scene */}
-            <div className="fixed inset-0 z-0 opacity-40 pointer-events-none">
-                <LandingScene />
-            </div>
-
-            {/* Scanlines Overlay */}
-            <div className="scanlines" />
+            {/* Main content - only show after warp intro */}
+            {!showWarpIntro && (
+                <>
+                    {/* Background 3D Scene */}
+                    <div className="fixed inset-0 z-0 opacity-40 pointer-events-none">
+                        <LandingScene />
+                    </div>
 
             {/* Navbar */}
-            <header className="relative z-10 mx-auto max-w-7xl px-6 py-6 flex items-center justify-between">
-                <div className="flex items-center gap-3 group cursor-pointer">
-                    <div className="w-8 h-8 bg-neon-yellow rounded-sm animate-pulse-slow" />
-                    <span className="font-pixel text-2xl font-bold tracking-widest text-glow-yellow group-hover:text-neon-yellow transition-colors">
+            <header className="relative z-10 mx-auto max-w-7xl px-6 py-6 flex items-center justify-between backdrop-blur-sm bg-black/30 border-b border-neon-yellow/20 rounded-b-lg">
+                <div className="flex items-center gap-3 group cursor-pointer hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 bg-neon-yellow rounded-sm animate-pulse-slow shadow-[0_0_20px_rgba(255,255,0,0.6)]" />
+                    <span className="font-pixel text-3xl font-bold tracking-widest text-glow-yellow group-hover:text-neon-yellow transition-colors">
                         ETERNATUM
                     </span>
                 </div>
-                <nav className="hidden md:flex gap-8 font-medium text-sm text-gray-400">
+                <nav className="hidden md:flex gap-8 font-medium text-base">
                     {['Games', 'Assets', 'Learn', 'Community'].map((item, idx) => {
                         const navColors = ['text-neon-yellow hover:text-glow-yellow', 'text-neon-red hover:text-glow-red', 'text-neon-green-bright hover:text-glow-green-bright', 'text-neon-yellow hover:text-glow-yellow'];
                         const colorClass = navColors[idx % navColors.length];
@@ -64,7 +66,7 @@ export default function LandingPage() {
                             <a
                                 key={item}
                                 href="#"
-                                className={`${colorClass} transition-colors`}
+                                className={`${colorClass} transition-all duration-300 hover:scale-110 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-current after:transition-all after:duration-300 hover:after:w-full`}
                             >
                                 {item}
                             </a>
@@ -74,13 +76,13 @@ export default function LandingPage() {
                 <div className="flex gap-4">
                     {session ? (
                         <>
-                            <Button variant="ghost" size="sm" asChild>
+                            <Button variant="ghost" size="md" asChild>
                                 <Link href="/dashboard">
                                     Dashboard
                                 </Link>
                             </Button>
                             <Button
-                                size="sm"
+                                size="md"
                                 colorCycle
                                 onClick={() => signOut({ redirect: true })}
                             >
@@ -89,12 +91,12 @@ export default function LandingPage() {
                         </>
                     ) : (
                         <>
-                            <Button variant="ghost" size="sm" asChild>
+                            <Button variant="ghost" size="md" asChild>
                                 <Link href="/login">
                                     Log In
                                 </Link>
                             </Button>
-                            <Button size="sm" colorCycle asChild>
+                            <Button size="md" colorCycle asChild>
                                 <Link href="/signup">
                                     Sign Up
                                 </Link>
@@ -104,30 +106,32 @@ export default function LandingPage() {
                 </div>
             </header>
 
-            {/* Hero Command Panel Section */}
-            <section className="relative z-10 flex flex-col items-center justify-center pt-20 pb-32 px-6 text-center max-w-5xl mx-auto">
-                <Badge variant="success" colorCycle className="mb-6 animate-float">
-                    SYSTEM ONLINE_ v1.0
-                </Badge>
+            {/* Hero Command Panel Section - Full screen height and centered */}
+            <section className="relative z-10 w-full h-screen flex flex-col items-center justify-center px-6 text-center -mt-24">
+                <div className="max-w-5xl mx-auto">
+                    <Badge variant="success" colorCycle className="mb-6 animate-float">
+                        SYSTEM ONLINE_ v1.0
+                    </Badge>
 
-                <h1 className="font-pixel text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
-                    Build. Play.{' '}
-                    <span className="animate-color-cycle">
-                        Level Up.
-                    </span>
-                </h1>
+                    <h1 className="font-pixel text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-tight mb-8 tracking-widest text-glow-yellow drop-shadow-xl text-center w-full">
+                        Build. Play.{' '}
+                        <span className="animate-color-cycle text-glow-yellow drop-shadow-lg">
+                            Level Up.
+                        </span>
+                    </h1>
 
-                <p className="max-w-2xl text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
-                    Create games. Learn by doing. Join the dev arcade.
-                </p>
+                    <p className="max-w-2xl text-sm md:text-base lg:text-lg text-gray-400 mb-8 leading-relaxed mx-auto">
+                        Create games. Learn by doing. Join the dev arcade.
+                    </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                    <Button size="lg" colorCycle className="min-w-[200px] text-lg border">
-                        Start Building
-                    </Button>
-                    <Button variant="outline" size="lg" colorCycle className="min-w-[200px] text-lg">
-                        Play Games
-                    </Button>
+                    <div className="flex flex-col sm:flex-row gap-3 w-full justify-center">
+                        <Button size="md" colorCycle className="min-w-[160px] text-base border">
+                            Start Building
+                        </Button>
+                        <Button variant="outline" size="md" colorCycle className="min-w-[160px] text-base">
+                            Play Games
+                        </Button>
+                    </div>
                 </div>
             </section>
 
@@ -204,6 +208,8 @@ export default function LandingPage() {
                     </div>
                 </div>
             </footer>
+                </>
+            )}
         </main>
     );
 }

@@ -21,7 +21,7 @@ export default function FeaturedGames({
     games = [],
     onGameClick,
 }: FeaturedGamesProps) {
-    const [sortBy, setSortBy] = useState<SortOption>('featured');
+    const [sortBy, setSortBy] = useState<SortOption>('likes');
     const [filterStatus, setFilterStatus] = useState<FilterStatus>('all');
     // Default games if none provided
     const defaultGames: GameCardProps[] = [
